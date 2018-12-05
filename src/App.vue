@@ -1,28 +1,40 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+      <CalendarWeek />
+      <CalendarEntry />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import CalendarWeek from "./components/CalendarWeek.vue"
+import CalendarEntry from "./components/CalendarEntry.vue"
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    CalendarWeek,
+    CalendarEntry
   }
 }
 </script>
 
-<style>
+
+<style lang="scss">
+html, body {
+  height: 100%;
+}
+</style>
+
+<style lang="scss" scoped>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  height: inherit;
+  background: #6e6e6e;
+  display: flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+  align-items: center;
+  -webkit-align-items: center;
+  justify-content: center;
+  -webkit-justify-content: center;
 }
 </style>

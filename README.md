@@ -1,4 +1,5 @@
 # calendar-app
+Simple case forlearning
 
 ## Project setup
 ```
