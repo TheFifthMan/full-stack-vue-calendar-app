@@ -5,8 +5,7 @@
       <p class="calendar-entry-day">
         Day of event: <span class="bold">{{ titleOfActiveDay }}</span>
       </p>
-      <a class="button is-primary is-small is-outlined"
-        @click="submitEvent(inputEntry)">
+      <a class="button is-primary is-small is-outlined" @click="submitEvent(inputEntry)">
         Submit
       </a>
     </div>
@@ -20,10 +19,25 @@ import { store } from '../store.js'
 
 export default {
     name:"CalendarEntry",
+    data () {
+      return {
+        inputEntry: '',
+        error: false
+      }
+    },
     computed: {
-        titleOfActivatDay(){
-            return store.state.seedData.getActivate().fullTitle;
+        titleOfActiveDay(){
+            return store.getActiveDay().fullTitle;
         }
+    },
+    methods: {
+      submitEvent (eventDetails) {
+        if (eventDetails === "") return this.error = true;
+        store.submitEvent(eventDetails);
+
+        this.inputEntry = '' ;
+        this.error = false;
+      }
     }
 }
 </script>
